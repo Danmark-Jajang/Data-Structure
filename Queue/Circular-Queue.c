@@ -39,8 +39,8 @@ void print_queue(QueueType *q){
 
 void enqueue(QueueType *q, element item){
     if(is_full(q)){
-         printf("Queue Full Error Occur");
-         exit(1);
+         printf("Queue Full Error Occur\n");
+         return;
     }
     else{
         q->rear = (q->rear+1)%MAX_QUEUE_SIZE;
@@ -50,8 +50,7 @@ void enqueue(QueueType *q, element item){
 
 element dequeue(QueueType *q){
     if(is_empty(q)){
-        printf("Queue Empty Error Occur");
-        exit(1);
+        printf("Queue Empty Error Occur\n");
     }
     else{
         q->front = (q->front+1)%MAX_QUEUE_SIZE;
@@ -73,6 +72,7 @@ void main(){
     print_queue(&q);
     enqueue(&q,40);
     print_queue(&q);
+    enqueue(&q,50);
 
     dequeue(&q);
     print_queue(&q);
@@ -82,4 +82,5 @@ void main(){
     print_queue(&q);
     dequeue(&q);
     print_queue(&q);
+    dequeue(&q);
 }
