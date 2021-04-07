@@ -37,7 +37,7 @@ int is_empty(QueueType *q){
     else return 0;
 }
 
-void enqueue(QueueType *q, int item){
+void enqueue(QueueType *q, element item){
     if(is_full(q)){
         printf("Queue Full Error Occur");
         exit(1);
@@ -47,7 +47,7 @@ void enqueue(QueueType *q, int item){
     }
 }
 
-int dequeue(QueueType *q){
+element dequeue(QueueType *q){
     if(is_empty(q)){
         printf("Queue Empty Error Occur");
         exit(1);
@@ -58,7 +58,7 @@ int dequeue(QueueType *q){
 }
 
 void main(){
-    int item;
+    element item;
     QueueType q;
     init_queue(&q);
 
