@@ -33,8 +33,8 @@ void print_queue(QueueType *q){
             printf("%d | ",q->data[i]);
             if(i==q->rear) break;
         }while(i!=q->front);
-        printf("\n");
     }
+    printf("\n");
 }
 
 void enqueue(QueueType *q, element item){
@@ -51,6 +51,7 @@ void enqueue(QueueType *q, element item){
 element dequeue(QueueType *q){
     if(is_empty(q)){
         printf("Queue Empty Error Occur\n");
+        return -1;
     }
     else{
         q->front = (q->front+1)%MAX_QUEUE_SIZE;
