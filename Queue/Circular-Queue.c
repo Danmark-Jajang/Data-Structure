@@ -59,6 +59,15 @@ element dequeue(QueueType *q){
     }
 }
 
+int get_count(QueueType *q){
+    if(q->front>q->rear){
+        return MAX_QUEUE_SIZE-(q->front - q->rear);
+    }
+    else{
+        return q->rear - q->front;
+    }
+}
+
 void main(){
     QueueType q;
     element item;
@@ -73,7 +82,8 @@ void main(){
     print_queue(&q);
     enqueue(&q,40);
     print_queue(&q);
-    enqueue(&q,50);
+
+    printf("get_count: %d\n",get_count(&q));
 
     dequeue(&q);
     print_queue(&q);
@@ -83,5 +93,4 @@ void main(){
     print_queue(&q);
     dequeue(&q);
     print_queue(&q);
-    dequeue(&q);
 }
